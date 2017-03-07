@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.nathan_mccauslin.bloodalcoholcalculator.MenuActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buttonLayout">
+
+        <Button
+            android:text="Calculate BAL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/calculateButton"
+            android:onClick="StartCalculatorActivity" />
+
+        <Button
+            android:text="Impairment Test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/impairmentTestButton"
+            android:onClick="StartComingSoon" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/historyButton"
+            android:text="History"
+            android:onClick="StartComingSoon" />
+
+        <Button
+            android:text="Credits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/creditsButton"
+            android:onClick="StartCredits"/>
+    </LinearLayout>
+</RelativeLayout>
