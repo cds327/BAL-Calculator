@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
+import android.app.Dialog;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText weightF;
     private EditText heightF;
     private Button genButton;
+    private EditText alcoholConsump;
+    private int alcohol;
     private int age;
     private double weight;
     private double height;
@@ -64,11 +66,15 @@ public class MainActivity extends AppCompatActivity {
                         ageF = (EditText)findViewById(R.id.ageField);    // sets variables with value the user entered
                         weightF = (EditText)findViewById(R.id.weightField);
                         heightF = (EditText)findViewById(R.id.heightField);
-
+                        alcoholConsump = (EditText) findViewById(R.id.alcoholDrinks);
 
                         age = Integer.parseInt(ageF.getText().toString()); // convert ageF to string then string to int
                         weight = Double.parseDouble(weightF.getText().toString())/2.2; //set weight after converting input to kg
                         height = Double.parseDouble(heightF.getText().toString())*2.54;
+                        alcohol = Integer.parseInt(alcoholConsump.getText().toString());
+
+
+
     };
     });
     }}
