@@ -37,8 +37,8 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/alcoholDrinks"
-        android:hint="Enter Your Age (years)"
-        android:layout_below="@+id/textView2"
+        android:hint="Enter in how many oz of alcohol you have drank."
+        android:layout_below="@+id/textView"
         android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView" />
 
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Enter some info. below to calculator your BAL!"
+        android:text="Enter the information below to calculate your BAL!"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -79,7 +79,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/heightField"
-        android:hint="Enter Your Height (in)"
+        android:hint="Alcohol Consumed (oz)"
         android:layout_below="@+id/weightField"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -112,6 +112,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
         </RadioGroup>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lastDrinkID"
+        android:inputType="numberDecimal"
+        android:ems="20"
+        android:layout_marginTop="750px"
+        android:hint="Enter in how long in minutes since last drink."/>
 
 
     <TextView
@@ -121,25 +129,27 @@
         android:padding="10dp"
         android:text="@string/dialog_text"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@id/dialog_info">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/dialog_info">-->
 
-    <Button
-        android:id="@+id/dialog_cancel"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.50"
-        android:background="@color/colorPrimaryDark"
-        android:text="Cancel"/>
+    <!--<Button-->
+        <!--android:id="@+id/dialog_cancel"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_weight="0.50"-->
+        <!--android:background="@color/colorPrimaryDark"-->
+        <!--android:text="Cancel"/>-->
 
-    <Button
-        android:id="@+id/dialog_ok"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.50"
-        android:background="@color/colorWhite"
-        android:text="Agree"/>
-    </LinearLayout>
+    <!--<Button-->
+        <!--android:id="@+id/dialog_ok"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_weight="0.50"-->
+        <!--android:background="@color/colorWhite"-->
+        <!--android:text="Agree"/>-->
+    <!--</LinearLayout>-->
 </RelativeLayout>

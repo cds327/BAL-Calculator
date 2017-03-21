@@ -18,6 +18,7 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".ComingSoonActivity"></activity>
         <activity android:name=".CreditsActivity"></activity>
+        <activity android:name=".BALResults"></activity>
     </application>
 
 </manifest>
