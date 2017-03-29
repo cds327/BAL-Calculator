@@ -9,125 +9,145 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.nathan_mccauslin.bloodalcoholcalculator.MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calculate Blood Alcohol Level"
-        android:id="@+id/generateButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/ageField"
-        android:hint="Enter Your Age (years)"
-        android:layout_below="@+id/textView2"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/alcoholDrinks"
-        android:hint="Enter in how many oz of alcohol you have drank."
-        android:layout_below="@+id/textView"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Enter the information below to calculate your BAL!"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Gender:"
-        android:id="@+id/textView2"
-        android:layout_toRightOf="@+id/rGrpGender"
-        android:layout_toEndOf="@+id/rGrpGender"
-        android:layout_below="@+id/textView" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/weightField"
-        android:hint="Enter Your Weight (lbs)"
-        android:layout_below="@+id/ageField"
-        android:layout_alignLeft="@+id/ageField"
-        android:layout_alignStart="@+id/ageField" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/heightField"
-        android:hint="Alcohol Consumed (oz)"
-        android:layout_below="@+id/weightField"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/rGrpGender"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Female"
-        android:id="@+id/radioButton2"
-        android:checked="false"
-        android:layout_below="@+id/radioButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Male"
-        android:id="@+id/radioButton"
-        android:checked="false"
-        android:layout_below="@+id/rGrpGender"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-        </RadioGroup>
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lastDrinkID"
-        android:inputType="numberDecimal"
-        android:ems="20"
-        android:layout_marginTop="750px"
-        android:hint="Enter in how long in minutes since last drink."/>
-
-
-    <TextView
-        android:id="@+id/dialog_info"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="@string/dialog_text"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/instructionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Enter the information below to calculate your BAL!"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/genderText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/instructionText"
+                android:text="Gender:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/rGrpGender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/genderText">
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/radioButton"
+                    android:checked="false"
+                    android:text="Female" />
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/rGrpGender"
+                    android:checked="false"
+                    android:text="Male" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/ageField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/alcoholDrinks"
+                android:ems="10"
+                android:hint="Your Age (years)"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/weightField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/ageField"
+                android:ems="10"
+                android:hint="Your Weight (lbs)"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/alcoholDrinks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/rGrpGender"
+                android:ems="10"
+                android:hint="Alcohol Consumed (oz)"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/heightField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/weightField"
+                android:ems="10"
+                android:hint="Your Height (ft, in)"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/lastDrinkID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/heightField"
+                android:layout_weight="1"
+                android:ems="20"
+                android:hint="Time Since Last Drink (minutes)"
+                android:inputType="numberDecimal" />
+
+            <Button
+                android:id="@+id/generateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                android:text="Calculate Blood Alcohol Level"/>
+
+        </LinearLayout>
+    </ScrollView>
+
 
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->

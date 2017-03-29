@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Here is your BAL Result:"
-        android:id="@+id/textView"
+        android:id="@+id/instructionText"
          />
 
     <TextView

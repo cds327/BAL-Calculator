@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_menu"
     android:layout_width="match_parent"
@@ -11,40 +12,50 @@
     tools:context="com.example.nathan_mccauslin.bloodalcoholcalculator.MenuActivity">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/buttonLayout">
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/logo" />
 
         <Button
-            android:text="Calculate BAL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/calculateButton"
-            android:onClick="StartCalculatorActivity" />
-
-        <Button
-            android:text="Impairment Test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="StartCalculatorActivity"
+            android:text="Calculate BAL"
+            android:textSize="18sp" />
+
+        <Button
             android:id="@+id/impairmentTestButton"
-            android:onClick="StartComingSoon" />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="StartComingSoon"
+            android:text="Impairment Test"
+            android:textSize="18sp" />
+
+        <Button
             android:id="@+id/historyButton"
-            android:text="History"
-            android:onClick="StartComingSoon" />
-
-        <Button
-            android:text="Credits"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="StartComingSoon"
+            android:text="History"
+            android:textSize="18sp" />
+
+        <Button
             android:id="@+id/creditsButton"
-            android:onClick="StartCredits"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="StartCredits"
+            android:text="Credits"
+            android:textSize="18sp" />
     </LinearLayout>
 </RelativeLayout>
