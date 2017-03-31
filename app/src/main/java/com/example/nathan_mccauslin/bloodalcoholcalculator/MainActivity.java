@@ -12,7 +12,8 @@ import android.content.DialogInterface;
 import java.util.HashMap;
 import java.util.Map;
 import android.content.Intent;
-import java.util.Random;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 public class MainActivity extends AppCompatActivity {
     private RadioGroup genderGroup;
@@ -36,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
     private AlertDialog.Builder dlgAlert;
     private static final int RB1_ID = 1000;//first radio button id
     private static final int RB2_ID = 1001;//second radio button id
+    private SharedPreferences currentUserData;
+    private String getGender;
+    private String getAge;
+    private String getWeight;
+    private String getHeight;
 
 
     static Map<String, Integer> mealPlan = new HashMap<String, Integer>();
@@ -45,16 +51,52 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         onClickListenerButton();
+        genderGroup = (RadioGroup)findViewById(R.id.rGrpGender); // get info. from id rGrpGender, associate genButton with generateButton id
+
         genderButtonMale = (RadioButton) findViewById(R.id.radioButton);
         genderButtonFemale = (RadioButton) findViewById(R.id.radioButton2);
         lastDrink = (EditText) findViewById(R.id.lastDrinkID);
+        weightF = (EditText) findViewById(R.id.weightField);
+        heightF = (EditText) findViewById(R.id.heightField);
+        alcoholConsump = (EditText) findViewById(R.id.alcoholDrinks);
+        lastDrink = (EditText) findViewById(R.id.lastDrinkID);
+        ageF = (EditText) findViewById(R.id.ageField);
+        //Create connection to shared data for fields if any have been saved!
+        Context context = getApplicationContext();
+        currentUserData = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        getGender = currentUserData.getString("gender", "");
+        getAge = currentUserData.getString("age", "");
+        getWeight = currentUserData.getString("weight", "");
+        getHeight = currentUserData.getString("height", "");
+        int selectedGender = genderGroup.getCheckedRadioButtonId();
+
+
+        //Try to fill in values from previous times using the app if not then we leave blank
+        if(!getGender.equals("")){
+            if(getGender.equals("Female")){
+                genderGroup.check(genderButtonFemale.getId());
+            }
+            else if(getGender.equals("Male")){
+                genderGroup.check(genderButtonMale.getId());
+            }
+        }
+
+        if(!getAge.equals("")){
+            ageF.setText(getAge);
+        }
+
+        if(!getWeight.equals("")){
+            weightF.setText(getWeight);
+        }
+
+        if(!getHeight.equals("")){
+            heightF.setText(getHeight);
+        }
 
         // Username or password false, display and an error
         dlgAlert  = new AlertDialog.Builder(this);
     }
     public void onClickListenerButton(){
-        genderGroup = (RadioGroup)findViewById(R.id.rGrpGender); // get info. from id rGrpGender, associate genButton with generateButton id
-
         genButton = (Button)findViewById(R.id.generateButton); // associate genButton with generateButton id
         genButton.setOnClickListener(
                 new View.OnClickListener(){
@@ -84,27 +126,34 @@ public class MainActivity extends AppCompatActivity {
                             //Pass off to Results Intent
                             Intent getResults = new Intent(MainActivity.this, BALResults.class);
                             getResults.putExtra("result", BALResult);
+                            //Edit the user data to be saved for next time:
+                            SharedPreferences.Editor editor = currentUserData.edit();
+                            if(genderConstant == 0.70){
+                                editor.putString("gender", "Male");
+                            }
+                            else{
+                                editor.putString("gender", "Female");
+                            }
+                            editor.putString("age", ageF.getText().toString());
+                            editor.putString("weight", weightF.getText().toString());
+                            editor.putString("height", heightF.getText().toString());
+                            editor.commit();
+
                             finish();
                             startActivity(getResults);
                         }
                         else{
-
-
                             dlgAlert.setMessage("One or more fields are empty");
                             dlgAlert.setTitle("Error");
                             dlgAlert.setPositiveButton("OK", null);
                             dlgAlert.setCancelable(true);
                             dlgAlert.create().show();
-
                             dlgAlert.setPositiveButton("Ok",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
-
                                         }
                                     });
-
                         }
-
     };
     });
     }}

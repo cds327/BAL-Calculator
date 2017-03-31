@@ -2,5 +2,10 @@
     <string name="app_name">Blood Alcohol Calculator</string>
     <string name="dialog_text"></string>
     <string name="dialog_title">BAL Results</string>
+    <string name="gender"></string>
+    <string name="age"></string>
+    <string name="weight"></string>
+    <string name="height"></string>
+
 
 </resources>
