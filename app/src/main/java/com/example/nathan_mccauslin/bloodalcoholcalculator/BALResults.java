@@ -4,8 +4,10 @@ package com.example.nathan_mccauslin.bloodalcoholcalculator;
  * Created by christophersimcox on 3/7/17.
  */
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class BALResults extends AppCompatActivity{
@@ -21,5 +23,10 @@ public class BALResults extends AppCompatActivity{
         resultText.setText(calculatedData.toString());
     }
 
-
+    // Event handler used to start menu activity
+    public void MenuButtonClicked(View view)
+    {
+        Intent menuInt = new Intent(this, MenuActivity.class);
+        startActivity(menuInt);
+    }
 }
