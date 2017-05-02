@@ -12,7 +12,7 @@
     tools:context="com.example.nathan_mccauslin.bloodalcoholcalculator.ComingSoonActivity">
 
     <TextView
-        android:id="@+id/comingSoonText"
+        android:id="@+id/firstHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -20,18 +20,36 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="The content you are attempting to access is coming soon! This functionality is outlined in future releases and will become available soon."
+        android:text="No history to show yet!"
         android:textColor="@color/colorAccent" />
 
-    <Button
-        android:text="MENU"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="fill_parent"
+        android:id="@+id/secondHistory"
+        android:layout_marginTop="50sp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/menuButton"
-        android:textColor="@color/colorEditSecondary"
-        android:backgroundTint="@color/colorButtonBack"
-        android:onClick="MenuButtonClicked"/>
+        android:textColor="@color/colorAccent"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100sp"
+        android:id="@+id/thirdHistory"
+        android:textColor="@color/colorAccent"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:id="@+id/fourthHistory"
+        android:layout_marginTop="150sp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200sp"
+        android:id="@+id/fifthHistory"
+        android:textColor="@color/colorAccent"/>
+
+
 </RelativeLayout>
