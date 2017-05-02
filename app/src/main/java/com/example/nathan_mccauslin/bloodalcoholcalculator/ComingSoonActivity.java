@@ -36,7 +36,6 @@ public class ComingSoonActivity extends AppCompatActivity {
             br = new BufferedReader(new InputStreamReader(new FileInputStream("data/data/com.example.nathan_mccauslin.bloodalcoholcalculator/files/saved_text")));
             while ((line = br.readLine()) != null) {
                 sb.append(line);
-                Log.d("TAGGER", sb.toString());
             }
         }
         catch (IOException e) {
@@ -53,7 +52,6 @@ public class ComingSoonActivity extends AppCompatActivity {
 
         }
         results = sb.toString().split(",");
-        Log.d("BUG:", results[1].toString());
         int i;
         for(i = 0; i<results.length; i++){
             if(first.getText() == "" || first.getText().equals("No history to show yet!")){
