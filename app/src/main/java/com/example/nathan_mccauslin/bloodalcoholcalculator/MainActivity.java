@@ -127,7 +127,8 @@ public class MainActivity extends AppCompatActivity {
                             //height = Double.parseDouble(heightF.getText().toString()) * 2.54;
                             alcohol = Integer.parseInt(alcoholConsump.getText().toString());
                             alcoholGrams = alcohol * 28.3495; //Convent alcohol oz to grams
-                            BALResult = (alcoholGrams / bloodGrams) * (0.15 * lastDrinkNum); //BAL Calculation
+                            BALResult = ((alcoholGrams / bloodGrams) * (0.15 * lastDrinkNum)); //BAL Calculation
+                            String BALRounded = String.format("%.2f", BALResult);
                             //Pass off to Results Intent
                             Intent getResults = new Intent(MainActivity.this, BALResults.class);
                             getResults.putExtra("result", BALResult);
