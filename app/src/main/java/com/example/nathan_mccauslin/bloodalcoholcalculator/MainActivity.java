@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private String getGender;
     private String getAge;
     private String getWeight;
+    private double bloodGrams;
     //private String getHeight;
 
 
@@ -102,27 +103,31 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
-                        int checker = -1;
+                        int checker = 0;
                         int selectedGender = genderGroup.getCheckedRadioButtonId();
-                        if(selectedGender == genderButtonMale.getId()){
-                            checker = 0;
-                            genderConstant = 0.70;
-                        }
-                        else if(selectedGender == genderButtonFemale.getId()){
-                            checker = 0;
-                            genderConstant = 0.61;
-                        }
+
                         weightF = (EditText)findViewById(R.id.weightField);
                         //heightF = (EditText)findViewById(R.id.heightField);
                         alcoholConsump = (EditText) findViewById(R.id.alcoholDrinks);
                         if(lastDrink.getText().toString().trim().length() != 0 && checker == 0 && weightF.getText().toString().trim().length() != 0 && alcoholConsump.getText().toString().trim().length() != 0) {
                             lastDrinkNum = Integer.parseInt(lastDrink.getText().toString());
+
                             weight = Double.parseDouble(weightF.getText().toString());
-                            lbsGrams = weight * 453.592; //Convert pounds to grams
+                            lbsGrams = weight * .453592; //Convert pounds to kilo grams
+                            if(selectedGender == genderButtonMale.getId()){
+                                bloodGrams = 75 * lbsGrams;
+                                checker = 0;
+                                genderConstant = 0.70;
+                            }
+                            else if(selectedGender == genderButtonFemale.getId()){
+                                bloodGrams = 65 * lbsGrams;
+                                checker = 0;
+                                genderConstant = 0.61;
+                            }
                             //height = Double.parseDouble(heightF.getText().toString()) * 2.54;
                             alcohol = Integer.parseInt(alcoholConsump.getText().toString());
                             alcoholGrams = alcohol * 28.3495; //Convent alcohol oz to grams
-                            BALResult = (((alcoholGrams) / (lbsGrams * genderConstant)) * 100) * (0.15 * lastDrinkNum); //BAL Calculation
+                            BALResult = (alcoholGrams / bloodGrams) * (0.15 * lastDrinkNum); //BAL Calculation
                             //Pass off to Results Intent
                             Intent getResults = new Intent(MainActivity.this, BALResults.class);
                             getResults.putExtra("result", BALResult);
