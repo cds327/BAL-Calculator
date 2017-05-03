@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton genderButtonFemale;
     private EditText ageF;
     private EditText weightF;
-    private EditText heightF;
+    //private EditText heightF;
     private Button genButton;
     private EditText alcoholConsump;
     private int alcohol;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private int lastDrinkNum;
     private int age;
     private double weight;
-    private double height;
+    //private double height;
     private AlertDialog.Builder dlgAlert;
     private static final int RB1_ID = 1000;//first radio button id
     private static final int RB2_ID = 1001;//second radio button id
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private String getGender;
     private String getAge;
     private String getWeight;
-    private String getHeight;
+    //private String getHeight;
 
 
     static Map<String, Integer> mealPlan = new HashMap<String, Integer>();
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         genderButtonFemale = (RadioButton) findViewById(R.id.radioButton2);
         lastDrink = (EditText) findViewById(R.id.lastDrinkID);
         weightF = (EditText) findViewById(R.id.weightField);
-        heightF = (EditText) findViewById(R.id.heightField);
+        //heightF = (EditText) findViewById(R.id.heightField);
         alcoholConsump = (EditText) findViewById(R.id.alcoholDrinks);
         lastDrink = (EditText) findViewById(R.id.lastDrinkID);
         ageF = (EditText) findViewById(R.id.ageField);
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         getGender = currentUserData.getString("gender", "");
         getAge = currentUserData.getString("age", "");
         getWeight = currentUserData.getString("weight", "");
-        getHeight = currentUserData.getString("height", "");
+        //getHeight = currentUserData.getString("height", "");
         int selectedGender = genderGroup.getCheckedRadioButtonId();
 
 
@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
             weightF.setText(getWeight);
         }
 
-        if(!getHeight.equals("")){
-            heightF.setText(getHeight);
-        }
+       // if(!getHeight.equals("")){
+         //   heightF.setText(getHeight);
+        //}
 
         // Username or password false, display and an error
         dlgAlert  = new AlertDialog.Builder(this);
@@ -113,13 +113,13 @@ public class MainActivity extends AppCompatActivity {
                             genderConstant = 0.61;
                         }
                         weightF = (EditText)findViewById(R.id.weightField);
-                        heightF = (EditText)findViewById(R.id.heightField);
+                        //heightF = (EditText)findViewById(R.id.heightField);
                         alcoholConsump = (EditText) findViewById(R.id.alcoholDrinks);
-                        if(lastDrink.getText().toString().trim().length() != 0 && checker == 0 && weightF.getText().toString().trim().length() != 0 && heightF.getText().toString().trim().length() != 0 && alcoholConsump.getText().toString().trim().length() != 0) {
+                        if(lastDrink.getText().toString().trim().length() != 0 && checker == 0 && weightF.getText().toString().trim().length() != 0 && alcoholConsump.getText().toString().trim().length() != 0) {
                             lastDrinkNum = Integer.parseInt(lastDrink.getText().toString());
-                            weight = Double.parseDouble(weightF.getText().toString()) / 2.2; //set weight after converting input to kg
+                            weight = Double.parseDouble(weightF.getText().toString());
                             lbsGrams = weight * 453.592; //Convert pounds to grams
-                            height = Double.parseDouble(heightF.getText().toString()) * 2.54;
+                            //height = Double.parseDouble(heightF.getText().toString()) * 2.54;
                             alcohol = Integer.parseInt(alcoholConsump.getText().toString());
                             alcoholGrams = alcohol * 28.3495; //Convent alcohol oz to grams
                             BALResult = (((alcoholGrams) / (lbsGrams * genderConstant)) * 100) * (0.15 * lastDrinkNum); //BAL Calculation
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             editor.putString("age", ageF.getText().toString());
                             editor.putString("weight", weightF.getText().toString());
-                            editor.putString("height", heightF.getText().toString());
+                            //editor.putString("height", heightF.getText().toString());
                             editor.commit();
 
                             finish();
@@ -156,4 +156,5 @@ public class MainActivity extends AppCompatActivity {
                         }
     };
     });
-    }}
+    }
+}

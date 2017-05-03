@@ -126,7 +126,7 @@
                 android:inputType="number"
                 android:textColor="@color/colorAccent"
                 android:textColorHint="@color/colorEditSecondary" />
-
+            <!--
             <EditText
                 android:id="@+id/heightField"
                 android:layout_width="match_parent"
@@ -141,7 +141,7 @@
                 android:inputType="numberDecimal"
                 android:textColor="@color/colorAccent"
                 android:textColorHint="@color/colorEditSecondary" />
-
+            -->
             <EditText
                 android:id="@+id/lastDrinkID"
                 android:layout_width="match_parent"
@@ -169,6 +169,19 @@
                 android:textColor="@color/colorEditSecondary"
                 android:backgroundTint="@color/colorButtonBack"
                 android:text="Calculate Blood Alcohol Level"/>
+
+            <TextView
+                android:id="@+id/disclaimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="\n\nBy clicking the button above to calculate blood alcohol level, you agree that this information will be used purely for entertainment purposes. NEVER drive after consuming any amount of alcohol."
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="11dp"
+                android:textColor="#FF0000"
+                />
 
         </LinearLayout>
     </ScrollView>
