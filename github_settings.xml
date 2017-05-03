@@ -1,0 +1,6 @@
+<application>
+  <component name="GithubSettings">
+    <option name="LOGIN" value="nip5@nau.edu" />
+    <option name="AUTH_TYPE" value="BASIC" />
+  </component>
+</application>
